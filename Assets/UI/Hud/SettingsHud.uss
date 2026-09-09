@@ -1,0 +1,33 @@
+.hud-root {
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.settings-round-button {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 72px;
+    height: 72px;
+    padding: 0;
+    margin: 0;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    align-items: center;
+    justify-content: center;
+    transition-property: scale;
+    transition-duration: 0.1s;
+}
+
+.settings-round-button:active {
+    scale: 0.94 0.94;
+}
+
+.settings-icon {
+    width: 36px;
+    height: 36px;
+}

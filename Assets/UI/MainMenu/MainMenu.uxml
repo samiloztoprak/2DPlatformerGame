@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenu/MainMenu.uss?fileID=7433441132597879392&amp;guid=4b749b0affdafcd449591d9671e43592&amp;type=3#MainMenu"/>
+    <ui:VisualElement name="MenuRoot" class="menu-root">
+        <ui:Label text="JUMPY" name="TitleLabel" class="title-label"/>
+        <ui:Button text="PLAY" name="PlayButton" class="play-button"/>
+    </ui:VisualElement>
+</ui:UXML>

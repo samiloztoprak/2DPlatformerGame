@@ -1,0 +1,46 @@
+.settings-root {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(20, 24, 38, 0.85);
+    padding: 20px;
+}
+
+.title-label {
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    margin-bottom: 30px;
+    -unity-text-align: middle-center;
+}
+
+.settings-row {
+    width: 480px;
+    margin-bottom: 24px;
+}
+
+.settings-label {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 6px;
+}
+
+.settings-slider {
+    width: 100%;
+}
+
+.kenney-button {
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    -unity-font-style: bold;
+    color: rgb(60, 44, 20);
+    border-width: 0;
+    margin-top: 20px;
+    transition-property: scale;
+    transition-duration: 0.1s;
+}
+
+.kenney-button:active {
+    scale: 0.96 0.96;
+}

@@ -1,0 +1,29 @@
+.menu-root {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(20, 24, 38, 0.85);
+}
+
+.title-label {
+    font-size: 48px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    margin-bottom: 40px;
+    -unity-text-align: middle-center;
+}
+
+.play-button {
+    width: 220px;
+    height: 64px;
+    font-size: 28px;
+    -unity-font-style: bold;
+    color: rgb(60, 44, 20);
+    border-width: 0;
+    transition-property: scale;
+    transition-duration: 0.1s;
+}
+
+.play-button:active {
+    scale: 0.96 0.96;
+}

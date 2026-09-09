@@ -1,0 +1,2895 @@
+fileFormatVersion: 2
+guid: 1775b4d144b1849488c6e12c09a8718c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7814752275714677441
+    second: spritesheet_default_0
+  - first:
+      213: 6920992211604364072
+    second: spritesheet_default_1
+  - first:
+      213: -4740915770850827944
+    second: spritesheet_default_2
+  - first:
+      213: 5564033804792488463
+    second: spritesheet_default_3
+  - first:
+      213: -3307288631444210258
+    second: spritesheet_default_4
+  - first:
+      213: 5069725386070517938
+    second: spritesheet_default_5
+  - first:
+      213: -4211962826239868023
+    second: spritesheet_default_6
+  - first:
+      213: -2331698532662055577
+    second: spritesheet_default_7
+  - first:
+      213: -6654251643608154267
+    second: spritesheet_default_8
+  - first:
+      213: -8366988449928606121
+    second: spritesheet_default_9
+  - first:
+      213: 8170798025230534844
+    second: spritesheet_default_10
+  - first:
+      213: 2593743623052729465
+    second: spritesheet_default_11
+  - first:
+      213: 4004204716198383264
+    second: blue_body_circle
+  - first:
+      213: 1550693907287298861
+    second: blue_body_rhombus
+  - first:
+      213: -7635772087851390917
+    second: blue_body_square
+  - first:
+      213: -5835308075595443970
+    second: blue_body_squircle
+  - first:
+      213: 2602351201120330378
+    second: blue_hand_closed
+  - first:
+      213: 2933702418470311159
+    second: blue_hand_open
+  - first:
+      213: 1132768947124753773
+    second: blue_hand_peace
+  - first:
+      213: -8624602858226407631
+    second: blue_hand_point
+  - first:
+      213: -4418605803741572239
+    second: blue_hand_rock
+  - first:
+      213: -6348467399467089029
+    second: blue_hand_thumb
+  - first:
+      213: 363007943004067621
+    second: face_a
+  - first:
+      213: 780900889628589110
+    second: face_b
+  - first:
+      213: -7264311507669740739
+    second: face_c
+  - first:
+      213: 2770124190081221976
+    second: face_d
+  - first:
+      213: -6415276354297627471
+    second: face_e
+  - first:
+      213: -8210438316672414535
+    second: face_f
+  - first:
+      213: -8182722222941118468
+    second: face_g
+  - first:
+      213: -4169382538101468536
+    second: face_h
+  - first:
+      213: -5569421928118652835
+    second: face_i
+  - first:
+      213: 4486203730963695182
+    second: face_j
+  - first:
+      213: 4748653069873573279
+    second: face_k
+  - first:
+      213: -8739590722713146205
+    second: face_l
+  - first:
+      213: -7116701649937377583
+    second: facial_part_eye_closed_down
+  - first:
+      213: -1418450113048167010
+    second: facial_part_eye_closed_up
+  - first:
+      213: -7959816516179002097
+    second: facial_part_eye_half_bottom
+  - first:
+      213: -3872120500422057184
+    second: facial_part_eye_half_top
+  - first:
+      213: -1482378671215077072
+    second: facial_part_eye_half_top_wing
+  - first:
+      213: 3591048237251231596
+    second: facial_part_eye_open
+  - first:
+      213: 7980083893997733278
+    second: facial_part_eyebrow_a
+  - first:
+      213: 8318341808934498179
+    second: facial_part_eyebrow_b
+  - first:
+      213: -8187874362263415683
+    second: facial_part_eyebrow_c
+  - first:
+      213: 5257023959865595350
+    second: facial_part_eyebrow_d
+  - first:
+      213: 5160702695734277542
+    second: facial_part_mouth_angry
+  - first:
+      213: -4121206763791280019
+    second: facial_part_mouth_happy
+  - first:
+      213: 3037481674548620279
+    second: facial_part_mouth_sad
+  - first:
+      213: -8115552673857386623
+    second: facial_part_mouth_smirk
+  - first:
+      213: 2974838157322699744
+    second: green_body_circle
+  - first:
+      213: -4610619762030525010
+    second: green_body_rhombus
+  - first:
+      213: 8382700661104602830
+    second: green_body_square
+  - first:
+      213: -4509072456792751119
+    second: green_body_squircle
+  - first:
+      213: 457129846574523701
+    second: green_hand_closed
+  - first:
+      213: -3794096616800638577
+    second: green_hand_open
+  - first:
+      213: -4757828573104782949
+    second: green_hand_peace
+  - first:
+      213: 6826893992945883379
+    second: green_hand_point
+  - first:
+      213: 4832702272995730131
+    second: green_hand_rock
+  - first:
+      213: -3397591953528017218
+    second: green_hand_thumb
+  - first:
+      213: 6826334178294169662
+    second: hand_yellow_closed
+  - first:
+      213: 2100862140606883378
+    second: hand_yellow_open
+  - first:
+      213: 8821511984815058790
+    second: hand_yellow_peace
+  - first:
+      213: 8954536156956953055
+    second: hand_yellow_point
+  - first:
+      213: 6164647589401290202
+    second: hand_yellow_rock
+  - first:
+      213: -1159182592426081625
+    second: hand_yellow_thumb
+  - first:
+      213: 2212914781913421328
+    second: pink_body_circle
+  - first:
+      213: -9101753988390557692
+    second: pink_body_rhombus
+  - first:
+      213: 1987399073126432209
+    second: pink_body_square
+  - first:
+      213: -7787037780948806406
+    second: pink_body_squircle
+  - first:
+      213: -2668131184170129188
+    second: pink_hand_closed
+  - first:
+      213: 8163462101153372202
+    second: pink_hand_open
+  - first:
+      213: 6660935004188346742
+    second: pink_hand_peace
+  - first:
+      213: 8263525900255822469
+    second: pink_hand_point
+  - first:
+      213: 8587422945103461208
+    second: pink_hand_rock
+  - first:
+      213: -5518284713459550349
+    second: pink_hand_thumb
+  - first:
+      213: 23909824126805516
+    second: purple_body_circle
+  - first:
+      213: -6456755616569355338
+    second: purple_body_rhombus
+  - first:
+      213: -1394293889888115893
+    second: purple_body_square
+  - first:
+      213: 1857429059765128094
+    second: purple_body_squircle
+  - first:
+      213: 6080819084789662700
+    second: purple_hand_closed
+  - first:
+      213: -8858016381472503935
+    second: purple_hand_open
+  - first:
+      213: -6700124865216844498
+    second: purple_hand_peace
+  - first:
+      213: -6178143551885512245
+    second: purple_hand_point
+  - first:
+      213: 3920688250167224761
+    second: purple_hand_rock
+  - first:
+      213: -6347667064997030087
+    second: purple_hand_thumb
+  - first:
+      213: -4006702227542413625
+    second: red_body_circle
+  - first:
+      213: 569891934422532701
+    second: red_body_rhombus
+  - first:
+      213: -7755872134470773240
+    second: red_body_square
+  - first:
+      213: 2151599294006762226
+    second: red_body_squircle
+  - first:
+      213: 5567991829020560050
+    second: red_hand_closed
+  - first:
+      213: 3708724185479387610
+    second: red_hand_open
+  - first:
+      213: -8179408814759231797
+    second: red_hand_peace
+  - first:
+      213: -7037944027821693350
+    second: red_hand_point
+  - first:
+      213: -1165881889815692603
+    second: red_hand_rock
+  - first:
+      213: 336896355884544172
+    second: red_hand_thumb
+  - first:
+      213: -209143576518600603
+    second: shadow
+  - first:
+      213: 8204095343765444867
+    second: tile
+  - first:
+      213: 6501641558618812077
+    second: tile_background_grass
+  - first:
+      213: 45596305757545265
+    second: tile_background_tree_large
+  - first:
+      213: -7040202673429587056
+    second: tile_background_tree_small
+  - first:
+      213: -5913910107210474571
+    second: tile_center
+  - first:
+      213: 6663799962862134187
+    second: tile_cloud
+  - first:
+      213: -6799292124528217011
+    second: tile_coin
+  - first:
+      213: -4789769799206296000
+    second: tile_exclamation
+  - first:
+      213: 3016749614733051409
+    second: tile_grey
+  - first:
+      213: -7676063595937980063
+    second: tile_half
+  - first:
+      213: 2459108178831471449
+    second: tile_half_center
+  - first:
+      213: 6643324146765869475
+    second: tile_half_left
+  - first:
+      213: 8097334559747627991
+    second: tile_half_right
+  - first:
+      213: 1597645551470438137
+    second: tile_left
+  - first:
+      213: -4953903507406255266
+    second: tile_ramp_left
+  - first:
+      213: 1090901635837643950
+    second: tile_ramp_right
+  - first:
+      213: 4587195865068281107
+    second: tile_right
+  - first:
+      213: 5557151194642101870
+    second: yellow_body_circle
+  - first:
+      213: -1271950085217384462
+    second: yellow_body_rhombus
+  - first:
+      213: 3225621485728063963
+    second: yellow_body_square
+  - first:
+      213: 4022096065412102878
+    second: yellow_body_squircle
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blue_body_circle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 350
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aec2f469fac19730800000000000000
+      internalID: 4004204716198383264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_body_rhombus
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 17
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d23d83b84eb258510800000000000000
+      internalID: 1550693907287298861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_body_square
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 497
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3866cdfdb9480690800000000000000
+      internalID: -7635772087851390917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_body_squircle
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 257
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef05a27d832d40fa0800000000000000
+      internalID: -5835308075595443970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_hand_closed
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 400
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a82a69b21a86d1420800000000000000
+      internalID: 2602351201120330378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_hand_open
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 328
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f490a16eca96b820800000000000000
+      internalID: 2933702418470311159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_hand_peace
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 355
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d65d6f11b5768bf00800000000000000
+      internalID: 1132768947124753773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_hand_point
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 3
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137a89245614f4880800000000000000
+      internalID: -8624602858226407631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_hand_rock
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 261
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1731189ae65fda2c0800000000000000
+      internalID: -4418605803741572239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_hand_thumb
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 153
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73cd9a2986b5e7a0800000000000000
+      internalID: -6348467399467089029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_a
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1
+        width: 50
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52717650dc9a90500800000000000000
+      internalID: 363007943004067621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_b
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 6
+        width: 50
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c3913c83156da00800000000000000
+      internalID: 780900889628589110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_c
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d331097fb2bff2b90800000000000000
+      internalID: -7264311507669740739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_d
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 13
+        width: 53
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 855028d2645717620800000000000000
+      internalID: 2770124190081221976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_e
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 187
+        width: 55
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc7026352c58f6a0800000000000000
+      internalID: -6415276354297627471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_f
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 122
+        width: 55
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bc0c7c0ad9ae0e80800000000000000
+      internalID: -8210438316672414535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_g
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 155
+        width: 55
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cff56edfd71217e80800000000000000
+      internalID: -8182722222941118468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_h
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 86
+        width: 55
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 882deb30ca06326c0800000000000000
+      internalID: -4169382538101468536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_i
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 455
+        width: 59
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d507732b34075b2b0800000000000000
+      internalID: -5569421928118652835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_j
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 501
+        width: 50
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e468f1e3682324e30800000000000000
+      internalID: 4486203730963695182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_k
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 46
+        width: 55
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9de16fbeca96e140800000000000000
+      internalID: 4748653069873573279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: face_l
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 540
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ac2262ca8cb6b680800000000000000
+      internalID: -8739590722713146205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_eye_closed_down
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 2
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6db072e856c3d90800000000000000
+      internalID: -7116701649937377583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_eye_closed_up
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 2
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9db6203327a05ce0800000000000000
+      internalID: -1418450113048167010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_eye_half_bottom
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0dfcdb2d0d098190800000000000000
+      internalID: -7959816516179002097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_eye_half_top
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 3
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 023e5d49be6734ac0800000000000000
+      internalID: -3872120500422057184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_eye_half_top_wing
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 3
+        width: 25
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0391c97d3788d6be0800000000000000
+      internalID: -1482378671215077072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_eye_open
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 346
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6ff6a87857f5d130800000000000000
+      internalID: 3591048237251231596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_eyebrow_a
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 1
+        width: 20
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e950d837504febe60800000000000000
+      internalID: 7980083893997733278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_eyebrow_b
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 6
+        width: 20
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f22d18dcfa07370800000000000000
+      internalID: 8318341808934498179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_eyebrow_c
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 0
+        width: 15
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d74d2c316a3de5e80800000000000000
+      internalID: -8187874362263415683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_eyebrow_d
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 5
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d591874073b4f840800000000000000
+      internalID: 5257023959865595350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_mouth_angry
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 3
+        width: 40
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a574aa52cf7e9740800000000000000
+      internalID: 5160702695734277542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_mouth_happy
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 6
+        width: 20
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68984e88488ec6c0800000000000000
+      internalID: -4121206763791280019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_mouth_sad
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 10
+        width: 20
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fbaa3f5d7d472a20800000000000000
+      internalID: 3037481674548620279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: facial_part_mouth_smirk
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 448
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18742c657d3cf5f80800000000000000
+      internalID: -8115552673857386623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_body_circle
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 497
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e34f7fea8fb84920800000000000000
+      internalID: 2974838157322699744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_body_rhombus
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 177
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea546c921c9c300c0800000000000000
+      internalID: -4610619762030525010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_body_square
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 337
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece629b76d5555470800000000000000
+      internalID: 8382700661104602830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_body_squircle
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 17
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f3ce5a9d7e8c61c0800000000000000
+      internalID: -4509072456792751119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_hand_closed
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 543
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 535ad496c2d085600800000000000000
+      internalID: 457129846574523701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_hand_open
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 75
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f892610aa39a85bc0800000000000000
+      internalID: -3794096616800638577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_hand_peace
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 537
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b91c2edee1cc8fdb0800000000000000
+      internalID: -4757828573104782949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_hand_point
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 151
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f899c88aeffdbe50800000000000000
+      internalID: 6826893992945883379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_hand_rock
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 299
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d2222fcc15311340800000000000000
+      internalID: 4832702272995730131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_hand_thumb
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 115
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebeac369e1459d0d0800000000000000
+      internalID: -3397591953528017218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand_yellow_closed
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 434
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e30055784c20cbe50800000000000000
+      internalID: 6826334178294169662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand_yellow_open
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 113
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 236a0fc6cf2c72d10800000000000000
+      internalID: 2100862140606883378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand_yellow_peace
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 497
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66fa0cc696e4c6a70800000000000000
+      internalID: 8821511984815058790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand_yellow_point
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 39
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd98fcb0137e44c70800000000000000
+      internalID: 8954536156956953055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand_yellow_rock
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 73
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad56bb3225a3d8550800000000000000
+      internalID: 6164647589401290202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand_yellow_thumb
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 395
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a280a4e291c9efe0800000000000000
+      internalID: -1159182592426081625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_body_circle
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 97
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0161926054ad5be10800000000000000
+      internalID: 2212914781913421328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_body_rhombus
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 257
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4086cf088f210b180800000000000000
+      internalID: -9101753988390557692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_body_square
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 417
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dd34a46de8a49b10800000000000000
+      internalID: 1987399073126432209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_body_squircle
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 257
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af4100e4562eee390800000000000000
+      internalID: -7787037780948806406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_hand_closed
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 366
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd8a56903d4e8fad0800000000000000
+      internalID: -2668131184170129188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_hand_open
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 505
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a285c9477817a4170800000000000000
+      internalID: 8163462101153372202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_hand_peace
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 212
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6798c9c5815607c50800000000000000
+      internalID: 6660935004188346742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_hand_point
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 469
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5820df43601fda270800000000000000
+      internalID: 8263525900255822469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_hand_rock
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 149
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b3ee2aba7ac2770800000000000000
+      internalID: 8587422945103461208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_hand_thumb
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 1
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37776cc4a4d1b63b0800000000000000
+      internalID: -5518284713459550349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_body_circle
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 337
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0668bdbbd1f45000800000000000000
+      internalID: 23909824126805516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_body_rhombus
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 337
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b310e0e9fef466a0800000000000000
+      internalID: -6456755616569355338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_body_square
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 417
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b43a8bc281976ace0800000000000000
+      internalID: -1394293889888115893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_body_squircle
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 17
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9bc9c683e9e6c910800000000000000
+      internalID: 1857429059765128094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_hand_closed
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 468
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce3cd447db8636450800000000000000
+      internalID: 6080819084789662700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_hand_open
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 290
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1878db76801021580800000000000000
+      internalID: -8858016381472503935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_hand_peace
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 315
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2decf11fef5403a0800000000000000
+      internalID: -6700124865216844498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_hand_point
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 433
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc17e7a3c23d24aa0800000000000000
+      internalID: -6178143551885512245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_hand_rock
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 111
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b9e34ad035196630800000000000000
+      internalID: 3920688250167224761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_hand_thumb
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 77
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937d76e8f6e88e7a0800000000000000
+      internalID: -6347667064997030087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_body_circle
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 97
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ce619e6d855568c0800000000000000
+      internalID: -4006702227542413625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_body_rhombus
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 177
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d528d97e1b9a8e700800000000000000
+      internalID: 569891934422532701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_body_square
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 497
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 806d485d26b9d5490800000000000000
+      internalID: -7755872134470773240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_body_squircle
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 97
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa114288240cdd10800000000000000
+      internalID: 2151599294006762226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_hand_closed
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 227
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba4c09611b754d40800000000000000
+      internalID: 5567991829020560050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_hand_open
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 252
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad9166d3ff8087330800000000000000
+      internalID: 3708724185479387610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_hand_peace
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 275
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bceb393f407ec7e80800000000000000
+      internalID: -8179408814759231797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_hand_point
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 191
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a562b900233345e90800000000000000
+      internalID: -7037944027821693350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_hand_rock
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 502
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ca797b2994f1dfe0800000000000000
+      internalID: -1165881889815692603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_hand_thumb
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 39
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca03f926375eca400800000000000000
+      internalID: 336896355884544172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadow
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 435
+        width: 48
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 568dd867609f81df0800000000000000
+      internalID: -209143576518600603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 417
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309539c7f3dcad170800000000000000
+      internalID: 8204095343765444867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_background_grass
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 55
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae2466ec887a3a50800000000000000
+      internalID: 6501641558618812077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_background_tree_large
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 430
+        width: 96
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133afb7399df1a000800000000000000
+      internalID: 45596305757545265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_background_tree_small
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 227
+        width: 72
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09b597718fc2c4e90800000000000000
+      internalID: -7040202673429587056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_center
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 177
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb902a37129deda0800000000000000
+      internalID: -5913910107210474571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_cloud
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 187
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba3a8a882c29a7c50800000000000000
+      internalID: 6663799962862134187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_coin
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 6
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d44726146df04a1a0800000000000000
+      internalID: -6799292124528217011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_exclamation
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 417
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0462a62beb1578db0800000000000000
+      internalID: -4789769799206296000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_grey
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 497
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 116c57a8ac5add920800000000000000
+      internalID: 3016749614733051409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_half
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 30
+        width: 80
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1612fca34d4297590800000000000000
+      internalID: -7676063595937980063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_half_center
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 70
+        width: 80
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953f1871cd1802220800000000000000
+      internalID: 2459108178831471449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_half_left
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 110
+        width: 80
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a131c71d14d13c50800000000000000
+      internalID: 6643324146765869475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_half_right
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 150
+        width: 80
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7db504d61e28f5070800000000000000
+      internalID: 8097334559747627991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_left
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 190
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f6e0641a2afb2610800000000000000
+      internalID: 1597645551470438137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_ramp_left
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 337
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b0d75c103304bb0800000000000000
+      internalID: -4953903507406255266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_ramp_right
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 350
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaccef80249a32f00800000000000000
+      internalID: 1090901635837643950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile_right
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 30
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d1984d55ef8af30800000000000000
+      internalID: 4587195865068281107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow_body_circle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66b7c78197fe1d40800000000000000
+      internalID: 5557151194642101870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow_body_rhombus
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 270
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f70796f220295ee0800000000000000
+      internalID: -1271950085217384462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow_body_square
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 270
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd160b4b6a5b3cc20800000000000000
+      internalID: 3225621485728063963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow_body_squircle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 190
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eda726fbf0b51d730800000000000000
+      internalID: 4022096065412102878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      blue_body_circle: 4004204716198383264
+      blue_body_rhombus: 1550693907287298861
+      blue_body_square: -7635772087851390917
+      blue_body_squircle: -5835308075595443970
+      blue_hand_closed: 2602351201120330378
+      blue_hand_open: 2933702418470311159
+      blue_hand_peace: 1132768947124753773
+      blue_hand_point: -8624602858226407631
+      blue_hand_rock: -4418605803741572239
+      blue_hand_thumb: -6348467399467089029
+      face_a: 363007943004067621
+      face_b: 780900889628589110
+      face_c: -7264311507669740739
+      face_d: 2770124190081221976
+      face_e: -6415276354297627471
+      face_f: -8210438316672414535
+      face_g: -8182722222941118468
+      face_h: -4169382538101468536
+      face_i: -5569421928118652835
+      face_j: 4486203730963695182
+      face_k: 4748653069873573279
+      face_l: -8739590722713146205
+      facial_part_eye_closed_down: -7116701649937377583
+      facial_part_eye_closed_up: -1418450113048167010
+      facial_part_eye_half_bottom: -7959816516179002097
+      facial_part_eye_half_top: -3872120500422057184
+      facial_part_eye_half_top_wing: -1482378671215077072
+      facial_part_eye_open: 3591048237251231596
+      facial_part_eyebrow_a: 7980083893997733278
+      facial_part_eyebrow_b: 8318341808934498179
+      facial_part_eyebrow_c: -8187874362263415683
+      facial_part_eyebrow_d: 5257023959865595350
+      facial_part_mouth_angry: 5160702695734277542
+      facial_part_mouth_happy: -4121206763791280019
+      facial_part_mouth_sad: 3037481674548620279
+      facial_part_mouth_smirk: -8115552673857386623
+      green_body_circle: 2974838157322699744
+      green_body_rhombus: -4610619762030525010
+      green_body_square: 8382700661104602830
+      green_body_squircle: -4509072456792751119
+      green_hand_closed: 457129846574523701
+      green_hand_open: -3794096616800638577
+      green_hand_peace: -4757828573104782949
+      green_hand_point: 6826893992945883379
+      green_hand_rock: 4832702272995730131
+      green_hand_thumb: -3397591953528017218
+      hand_yellow_closed: 6826334178294169662
+      hand_yellow_open: 2100862140606883378
+      hand_yellow_peace: 8821511984815058790
+      hand_yellow_point: 8954536156956953055
+      hand_yellow_rock: 6164647589401290202
+      hand_yellow_thumb: -1159182592426081625
+      pink_body_circle: 2212914781913421328
+      pink_body_rhombus: -9101753988390557692
+      pink_body_square: 1987399073126432209
+      pink_body_squircle: -7787037780948806406
+      pink_hand_closed: -2668131184170129188
+      pink_hand_open: 8163462101153372202
+      pink_hand_peace: 6660935004188346742
+      pink_hand_point: 8263525900255822469
+      pink_hand_rock: 8587422945103461208
+      pink_hand_thumb: -5518284713459550349
+      purple_body_circle: 23909824126805516
+      purple_body_rhombus: -6456755616569355338
+      purple_body_square: -1394293889888115893
+      purple_body_squircle: 1857429059765128094
+      purple_hand_closed: 6080819084789662700
+      purple_hand_open: -8858016381472503935
+      purple_hand_peace: -6700124865216844498
+      purple_hand_point: -6178143551885512245
+      purple_hand_rock: 3920688250167224761
+      purple_hand_thumb: -6347667064997030087
+      red_body_circle: -4006702227542413625
+      red_body_rhombus: 569891934422532701
+      red_body_square: -7755872134470773240
+      red_body_squircle: 2151599294006762226
+      red_hand_closed: 5567991829020560050
+      red_hand_open: 3708724185479387610
+      red_hand_peace: -8179408814759231797
+      red_hand_point: -7037944027821693350
+      red_hand_rock: -1165881889815692603
+      red_hand_thumb: 336896355884544172
+      shadow: -209143576518600603
+      spritesheet_default_0: 7814752275714677441
+      spritesheet_default_1: 6920992211604364072
+      spritesheet_default_10: 8170798025230534844
+      spritesheet_default_11: 2593743623052729465
+      spritesheet_default_2: -4740915770850827944
+      spritesheet_default_3: 5564033804792488463
+      spritesheet_default_4: -3307288631444210258
+      spritesheet_default_5: 5069725386070517938
+      spritesheet_default_6: -4211962826239868023
+      spritesheet_default_7: -2331698532662055577
+      spritesheet_default_8: -6654251643608154267
+      spritesheet_default_9: -8366988449928606121
+      tile: 8204095343765444867
+      tile_background_grass: 6501641558618812077
+      tile_background_tree_large: 45596305757545265
+      tile_background_tree_small: -7040202673429587056
+      tile_center: -5913910107210474571
+      tile_cloud: 6663799962862134187
+      tile_coin: -6799292124528217011
+      tile_exclamation: -4789769799206296000
+      tile_grey: 3016749614733051409
+      tile_half: -7676063595937980063
+      tile_half_center: 2459108178831471449
+      tile_half_left: 6643324146765869475
+      tile_half_right: 8097334559747627991
+      tile_left: 1597645551470438137
+      tile_ramp_left: -4953903507406255266
+      tile_ramp_right: 1090901635837643950
+      tile_right: 4587195865068281107
+      yellow_body_circle: 5557151194642101870
+      yellow_body_rhombus: -1271950085217384462
+      yellow_body_square: 3225621485728063963
+      yellow_body_squircle: 4022096065412102878
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

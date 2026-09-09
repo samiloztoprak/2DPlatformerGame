@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ecd293ac97f40f4889cadd966a9a5be, type: 3}
+  m_Name: PlatformSpawnSet
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.PlatformSpawnSetSO
+  _entries:
+  - _data: {fileID: 11400000, guid: 9431c16a7340fb144bfd77aff828a20c, type: 2}
+    _weight: 0.5
+  - _data: {fileID: 11400000, guid: 5581cc0c4e941994cb51d1a489d64ff7, type: 2}
+    _weight: 0.25
+  - _data: {fileID: 11400000, guid: c053a64ed6b7ac64f9f5ebc381027da3, type: 2}
+    _weight: 0.25

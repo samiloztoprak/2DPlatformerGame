@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="SettingsHud.uss" />
+    <ui:VisualElement name="HudRoot" class="hud-root" picking-mode="Ignore">
+        <ui:Button name="SettingsButton" class="settings-round-button">
+            <ui:VisualElement name="SettingsIcon" class="settings-icon" picking-mode="Ignore" />
+        </ui:Button>
+    </ui:VisualElement>
+</ui:UXML>

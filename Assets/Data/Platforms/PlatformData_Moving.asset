@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678ea7ecd9558c046af926b117d4bc48, type: 3}
+  m_Name: PlatformData_Moving
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.PlatformDataSO
+  _prefab: {fileID: 5127107625182187322, guid: 7c988b55008735d4297a8169217a83e4, type: 3}
+  _sprite: {fileID: -7676063595937980063, guid: 1775b4d144b1849488c6e12c09a8718c, type: 3}
+  _minVerticalGap: 2.22
+  _maxVerticalGap: 2.22
+  _movementType: 1
+  _moveSpeed: 1.5
+  _moveRange: 1.5
+  _isCrumbling: 0
+  _crumbleDelay: 0.4
+  _crumbleFallAcceleration: 20

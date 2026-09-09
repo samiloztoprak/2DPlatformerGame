@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="SettingsMenu.uss" />
+    <ui:VisualElement name="SettingsRoot" class="settings-root">
+        <ui:Label text="SETTINGS" name="TitleLabel" class="title-label" />
+
+        <ui:VisualElement class="settings-row">
+            <ui:Label text="Master Volume" class="settings-label" />
+            <ui:Slider name="MasterVolumeSlider" low-value="0" high-value="1" value="1" class="settings-slider" />
+        </ui:VisualElement>
+
+        <ui:VisualElement class="settings-row">
+            <ui:Label text="SFX Volume" class="settings-label" />
+            <ui:Slider name="SfxVolumeSlider" low-value="0" high-value="1" value="1" class="settings-slider" />
+        </ui:VisualElement>
+
+        <ui:Button text="BACK" name="BackButton" class="kenney-button" />
+    </ui:VisualElement>
+</ui:UXML>
