@@ -1,101 +1,121 @@
 # Jumpy
 
-Doodle Jump tarzı, sonsuz yukarı zıplamalı 2D platformer. Unity 6 (6000.4.4f1), URP 2D, Android hedefli bir prototip/case study.
+An infinite vertical jumper (Doodle Jump–style) built in **Unity 6 (6000.4.4f1)** with **URP 2D**, targeting **Android**. The character bounces automatically from platform to platform; the player only steers left/right by touching or clicking either half of the screen.
 
-Karakter otomatik olarak platformdan platforma zıplar; oyuncu yalnızca ekranın sağına/soluna dokunarak (veya tıklayarak) yatay yönü kontrol eder. Platformlar havuzdan (object pool) sonsuz akar, kamera yalnızca yukarı doğru takip eder, ekranın altına düşünce oyun sıfırdan başlar.
+This project was built as a technical case study with a deliberate focus on **clean architecture, established design patterns, and data-driven tooling** — not just "making the game work." Every system below was chosen for a specific, stated reason, and the codebase follows a documented C# style guide and refactoring discipline throughout (see [Engineering Standards](#engineering-standards)).
 
 ---
 
-## İçindekiler
+## Table of Contents
 
-1. [Genel Mimari Felsefesi](#genel-mimari-felsefesi)
-2. [Klasör / Namespace Yapısı](#klasör--namespace-yapısı)
-3. [Kullanılan Tasarım Desenleri](#kullanılan-tasarım-desenleri)
-4. [Sistem Sistem Açıklama](#sistem-sistem-açıklama)
-5. [Oynanış Mekanikleri](#oynanış-mekanikleri)
-6. [UI Sistemi (UI Toolkit)](#ui-sistemi-ui-toolkit)
-7. [Ses Sistemi](#ses-sistemi)
-8. [Veri / ScriptableObject Asset'leri](#veri--scriptableobject-assetleri)
+1. [Gameplay](#gameplay)
+2. [Architecture Philosophy](#architecture-philosophy)
+3. [Project Layout](#project-layout)
+4. [Design Patterns](#design-patterns)
+5. [Systems Reference](#systems-reference)
+6. [UI (UI Toolkit)](#ui-ui-toolkit)
+7. [Audio](#audio)
+8. [Data Assets](#data-assets)
 9. [Android Build](#android-build)
-10. [Kod Standartları](#kod-standartları)
-11. [Bilinen Sınırlamalar / Sonraki Adımlar](#bilinen-sınırlamalar--sonraki-adımlar)
+10. [Engineering Standards](#engineering-standards)
+11. [Notable Bugs Found & Fixed](#notable-bugs-found--fixed)
+12. [Possible Next Steps](#possible-next-steps)
 
 ---
 
-## Genel Mimari Felsefesi
+## Gameplay
 
-Proje üç temel prensip üzerine kuruldu:
+| Mechanic | Summary |
+|---|---|
+| Auto-jump | `Rigidbody2D` + one-way `PlatformEffector2D` platforms; the player is launched upward on any landing from above |
+| Steering | Hold the left/right half of the screen (mouse or touch) to move horizontally |
+| Screen wrap | Exiting one side of the screen re-enters from the opposite side |
+| Camera | Follows upward only, never downward, with a hard catch-up clamp so a fast jump can never outrun the view |
+| Infinite platform stream | Platforms are generated ahead of the player and pooled back once off-screen — no manual level layout exists |
+| Platform variety | **Static**, **horizontally oscillating**, and **crumbling** platform types, spawned from a weighted random table |
+| Crumbling platforms | Visually distinct (red/orange tint), solid for a brief moment after landing, then collapse and fall out of play |
+| Platform spacing | Vertical gap between platforms is derived from the player's actual jump physics (see below), not a hand-tuned guess |
+| Fail state | Falling below the camera reloads the scene back to the main menu |
+| Pause | Opening the settings panel sets `Time.timeScale = 0`; UI and audio remain fully responsive while the game freezes |
 
-- **Veri odaklı (data-driven):** Oyunun tüm ayarlanabilir sayıları (hız, zıplama kuvveti, platform aralıkları, ses seviyeleri) kod içine gömülü değil, `ScriptableObject` asset'lerinde tutulur. Sahneye elle hiçbir platform/oyuncu dizilmez — her şey oyun başladığında bu verilerden **generate** edilir (bkz. `GameInitializer`).
-- **Gevşek bağlı (loosely coupled) sistemler:** Sistemler birbirine mümkün olduğunca doğrudan referansla değil, `ScriptableObject` tabanlı **event channel**'lar üzerinden konuşur. Ama bu her yerde zorlanmaz — kamera→oyuncu gibi doğal 1:1 ilişkiler bilinçli olarak doğrudan referans kullanır (aşağıda "Neden Event Bus Her Yerde Değil" bölümüne bakın).
-- **Küçük, tek sorumluluklu sınıflar:** Hiçbir sınıf "her şeyi yapan" bir god-object değildir. Örn. platform akışı tek bir dev sınıf yerine `PlatformSpawner` (spawn kararı), `PlatformRecycler` (havuza iade), `PlatformPoolManager` (havuz yönetimi) ve bunları yöneten ince bir `PlatformStreamManager` orkestratörüne bölünmüştür.
-
-Bu üç prensip, `Rules/` klasöründeki iki referans kaynağa dayanıyor: Unity'nin resmi *"Create a C# Style Guide"* e-kitabı (isimlendirme, formatlama, sınıf/method tasarımı kuralları) ve Alexander Shvets'in *"Dive Into Refactoring"* kitabı (code smell kataloğu ve refactoring teknikleri — bkz. Bloaters, Object-Orientation Abusers, Dispensables vb.).
+**Platform spacing is physics-derived, not guessed.** The jump apex height is computed from the actual rigidbody values (`h = jumpForce² / (2 · gravity · gravityScale)` ≈ 3.33 units), and every platform type's vertical gap is set to **2/3 of that value (2.22 units)** — close enough to feel fair, far enough to require real timing.
 
 ---
 
-## Klasör / Namespace Yapısı
+## Architecture Philosophy
+
+Three principles drive every decision in this codebase:
+
+- **Data-driven.** Every tunable number (speeds, jump force, spawn distances, audio volumes) lives in `ScriptableObject` assets, not in code. Nothing is hand-placed in the scene — the entire level is generated at runtime from data (see `GameInitializer`).
+- **Loosely coupled, but not dogmatically.** Systems communicate through `ScriptableObject`-based event channels where that decoupling actually pays off (see [Observer / Event Channels](#observer--scriptableobject-event-channels)). Where a relationship is naturally 1:1 and single-purpose (e.g. camera → player target), a direct reference is used instead — indirection is a tool, not a rule.
+- **Small, single-purpose classes.** No God objects. The platform streaming pipeline alone is split into four classes, each with one job (see [Single Responsibility](#single-responsibility--the-platform-pipeline)).
+
+These principles are grounded in two references kept alongside the project: Unity's official *"Create a C# Style Guide"* and Alexander Shvets' *"Dive Into Refactoring"* (the code-smell/refactoring catalog referenced throughout this document).
+
+---
+
+## Project Layout
 
 ```
 Assets/Scripts/
   Core/
-    Events/      → Game.Core.Events      (SO tabanlı generic event channel altyapısı)
-    Pooling/     → Game.Core.Pooling     (generic object pool altyapısı)
-    Utility/     → Game.Core.Utility     (ScreenBoundsUtility gibi bağımsız yardımcılar)
-  Data/          → Game.Data             (ScriptableObject veri konteynerleri)
-  Platforms/     → Game.Platforms        (platform havuzu, spawn/recycle, hareket stratejileri)
-  Player/        → Game.Player           (input, hareket, zıplama, ekran wrap, düşme algılama)
-  CameraSystem/  → Game.CameraSystem     (kamera takip mantığı)
-  Audio/         → Game.Audio            (SFX çalma, ses ayarları köprüsü)
-  UI/            → Game.UI               (UI Toolkit controller'ları)
-  Bootstrap/     → Game.Bootstrap        (oyunu ayağa kaldıran giriş noktası)
+    Events/      → Game.Core.Events      generic SO event-channel infrastructure
+    Pooling/     → Game.Core.Pooling     generic object pool infrastructure
+    Utility/     → Game.Core.Utility     stateless helpers (e.g. screen bounds math)
+  Data/          → Game.Data             ScriptableObject data containers
+  Platforms/     → Game.Platforms        pooling, spawn/recycle, movement strategies
+  Player/        → Game.Player           input, movement, jump, wrap, fall detection
+  CameraSystem/  → Game.CameraSystem     camera follow logic
+  Audio/         → Game.Audio            SFX playback, volume bridge
+  UI/            → Game.UI               UI Toolkit controllers
+  Bootstrap/     → Game.Bootstrap        game entry point
 ```
 
-Namespace'ler arası bağımlılık yönü **tek yönlü** tutulur: `Data` hiçbir zaman `Platforms`'a bağımlı değildir (döngüsel referansı önlemek için `PlatformDataSO.Prefab` alanı `PlatformController` değil düz `GameObject` tipindedir — bkz. [Strategy / Factory](#platform-hareket-stratejisi-strategy--factory) bölümü).
+Dependencies flow **one way only**: `Data` never depends on `Platforms`, even though `Platforms` depends on `Data`. This is enforced by a deliberate design choice — see [Data-Driven ScriptableObjects](#data-driven-scriptableobjects) below.
 
 ---
 
-## Kullanılan Tasarım Desenleri
+## Design Patterns
 
 ### Object Pool — `Core/Pooling/`
 
-**Nerede:** `IPoolable` arayüzü + generic `ComponentPool<T>` sınıfı (Unity'nin `UnityEngine.Pool.ObjectPool<T>`'ını sarmalıyor), kullanan yer: `Platforms/PlatformPoolManager`.
+**Where:** `IPoolable` interface + generic `ComponentPool<T>` (wraps `UnityEngine.Pool.ObjectPool<T>`), consumed by `Platforms/PlatformPoolManager`.
 
-**Neden:** Oyun sonsuz yukarı akan platformlar üretir. Her zıplamada yeni bir `Instantiate`/`Destroy` çağrısı yapmak GC (garbage collector) baskısı ve frame-time dalgalanmasına yol açar — mobilde (Android hedefi) bu özellikle kritik. Object Pool deseni, ekrandan çıkan platformları yok etmek yerine devre dışı bırakıp yeniden kullanır.
+**Why:** The game streams platforms endlessly. Instantiating/destroying a GameObject on every spawn would create constant GC pressure and frame-time spikes — a real concern on the Android target. Pooling recycles the same instances instead of churning the heap.
 
 ```csharp
 public class ComponentPool<T> where T : Component, IPoolable
 ```
 
-`ComponentPool<T>` generic olduğu için sadece platformlar değil, ileride mermi/parçacık gibi başka tekrarlı objeler için de tekrar kullanılabilir (DRY). `IPoolable.OnSpawned()/OnDespawned()` her obje tipinin kendi reset mantığını tanımlamasını sağlar (örn. `PlatformController.OnDespawned()` kendi `Data` referansını temizler).
+Because it's generic, this pool isn't platform-specific — it can be reused for any future pooled object (projectiles, particles) without modification. `IPoolable.OnSpawned()` / `OnDespawned()` let each object type define its own reset logic (e.g. `PlatformController.OnDespawned()` clears its crumble state and re-enables its collider so a reused instance behaves identically to a fresh one).
 
-`PlatformPoolManager`, `PlatformDataSO` başına **ayrı bir havuz** tutar (`Dictionary<PlatformDataSO, ComponentPool<PlatformController>>`) — böylece farklı platform tipleri (statik/hareketli) birbirinin havuzunu kirletmez.
+`PlatformPoolManager` keeps **one pool per `PlatformDataSO`**, so static, moving, and crumbling platforms never share (and can't corrupt) each other's pool.
 
-### Observer / Event Bus — ScriptableObject Event Channels — `Core/Events/`
+### Observer — ScriptableObject Event Channels — `Core/Events/`
 
-**Nerede:** Generic `EventChannelSO<T>` (abstract) + somut kanallar: `FloatEventChannelSO`, `AudioClipEventChannelSO` (Core), `PlatformEventChannelSO` (Platforms, payload `PlatformController` olduğu için Data/Core'a değil kendi katmanına konuldu).
+**Where:** Generic `EventChannelSO<T>` base class, with concrete channels `FloatEventChannelSO`, `AudioClipEventChannelSO` (Core) and `PlatformEventChannelSO` (Platforms — kept in its own layer because its payload type belongs there, avoiding a reverse dependency).
 
-**Neden:** Ryan Hipple'ın Unity Unite konuşmasında popülerleşen "Game Architecture with ScriptableObjects" deseni. Klasik C# event/delegate yerine bir **asset** kullanmanın faydası: yayıncı (publisher) ve dinleyici (subscriber) birbirinin script'ine hiç referans vermeden, Inspector'dan aynı asset'i sürükleyerek bağlanır. Bu, sistemleri gerçekten birbirinden bağımsız test edilebilir/değiştirilebilir kılar.
+**Why:** This is the ScriptableObject-based Observer pattern popularized by Unity's own architecture talks. Publishers and subscribers never reference each other's scripts — they share an asset, wired in the Inspector. That keeps every system independently testable and swappable.
 
-**Somut örnek — mimarinin ödemesini yaptığı an:** `PlayerJumpController`, oyuncu bir platforma indiğinde `PlatformEventChannelSO`'yu (`PlayerLandedChannel` asset'i) tetikler. Bu event'i **iki bağımsız sistem** dinler:
-1. Hiç — aslında şu an tek dinleyici `JumpSfxTrigger` (ses sistemi), zıplama sesini çalmak için.
-2. Mimari baştan buna göre kurulduğu için, skor sistemi gibi gelecekteki bir özellik `PlayerJumpController`'ın tek satırına bile dokunmadan aynı event'e abone olabilir.
+**Concrete payoff:** `PlayerJumpController` raises `PlayerLandedChannel` on every landing. That event now has **two independent listeners** that know nothing about each other:
 
 ```csharp
-// JumpSfxTrigger.cs — PlayerJumpController'dan tamamen habersiz
+// JumpSfxTrigger.cs — has zero knowledge of PlayerJumpController
 private void OnEnable() => _playerLandedChannel.OnEventRaised += HandlePlayerLanded;
 private void HandlePlayerLanded(PlatformController platform) => _sfxRequestChannel.Raise(_jumpClip);
 ```
 
-**Neden generic tek tip + concrete alt sınıflar (her event için ayrı sınıf değil):** `FloatEventChannelSO` hem input yönü hem de (potansiyel olarak) başka float event'ler için tekrar kullanılabilir. Her olay için özel bir sınıf açmak (`PlayerJumpedEventSO`, `ScoreChangedEventSO`, ...) *Dispensables/Speculative Generality* kod kokusuna girer — bunun yerine az sayıda **reusable payload tipi**, farklı olaylar farklı **asset instance'ları** ile temsil edilir.
+A future scoring system could subscribe the same way without touching a single line of `PlayerJumpController`.
 
-**Neden her yerde değil:** Kamera'nın oyuncuyu takip etmesi (`CameraFollowController.SetTarget`) veya Ayarlar panelinin Ana Menü'yü gizlemesi gibi doğal, tek yönlü, tek-tüketicili ilişkiler için event bus yerine **doğrudan referans** kullanıldı. Event bus'ı her ilişkide zorlamak gereksiz dolaylılık (indirection) ve YAGNI ihlali olurdu.
+**Why generic payload types instead of one class per event:** `FloatEventChannelSO` is reused for input direction and could carry any other float-valued event; a dedicated `PlayerJumpedEventSO` per event name would be *Speculative Generality* (Dispensables, per the refactoring catalog). A handful of reusable payload types, instantiated as distinct assets per use case, is the leaner alternative.
 
-### Strategy + Factory — Platform Hareket Stratejisi
+**Why not everywhere:** Camera-follows-player (`CameraFollowController.SetTarget`) and settings-panel-hides-menu are naturally 1:1, single-consumer relationships. Routing those through an event channel would be indirection for its own sake — a straight reference is simpler and equally correct.
 
-**Nerede:** `Platforms/IPlatformMovement` arayüzü, `StaticPlatformMovement` / `HorizontalOscillatePlatformMovement` implementasyonları, `PlatformMovementFactory` (enum'dan strateji nesnesi üreten merkezi fabrika).
+### Strategy + Factory — Platform Movement
 
-**Neden:** Refactoring Guru kataloğundaki **"Replace Conditional with Polymorphism"** tekniğinin doğrudan uygulaması. Platform hareketini `if/switch (movementType) { ... }` ile her `Update()` çağrısında dallandırmak yerine, her hareket tipi kendi küçük sınıfında izole edilir:
+**Where:** `Platforms/IPlatformMovement` interface, `StaticPlatformMovement` / `HorizontalOscillatePlatformMovement` implementations, `PlatformMovementFactory` (a single, centralized creation point).
+
+**Why:** This is a direct application of *Replace Conditional with Polymorphism*. Instead of a `switch (movementType)` scattered through `Update()`, each behavior is its own small class:
 
 ```csharp
 public interface IPlatformMovement
@@ -104,141 +124,140 @@ public interface IPlatformMovement
 }
 ```
 
-`PlatformMovementFactory` içindeki TEK `switch` merkezi bir "hangi strateji nesnesi üretilsin" kararıdır — bu, kod tabanına yayılmış çok sayıda tip kontrolünden farklıdır ve kabul edilebilir bir factory deseni kullanımıdır (kod kokusu olan, kod tabanına *dağılmış* switch'lerdir, tek bir üretim noktasındaki switch değil).
+The one `switch` inside `PlatformMovementFactory` is a legitimate factory — the smell the pattern avoids is *scattered* type-checks across a codebase, not a single, centralized creation point. Adding a new movement type later means adding one new class, not touching existing ones (Open/Closed Principle).
 
-Yeni bir platform davranışı eklemek (örn. dikey salınım, kaybolan platform) mevcut kodu değiştirmeden yeni bir `IPlatformMovement` implementasyonu eklemekle olur (Open/Closed Principle).
+Note that **crumbling behavior deliberately isn't modeled as an `IPlatformMovement`.** It's a one-shot, *triggered* state change (touch → delay → fall → collider off) rather than a continuous function of elapsed time, and it needs to take over from — not compose with — the underlying movement strategy. Forcing it into the same interface would have meant polluting `IPlatformMovement` with a `Trigger()` no-op on every other implementation for a behavior that doesn't share their shape. Instead, `PlatformController.NotifyLanded()` handles it as an explicit state machine local to the controller — the same "right tool over reflexive pattern-matching" judgment call this document keeps coming back to.
 
-### ScriptableObject Veri Konteynerleri (Data-Driven Design)
+### Data-Driven ScriptableObjects
 
-**Nerede:** `Data/` klasöründeki her `...SO.cs` dosyası.
+**Where:** Every `...SO.cs` file under `Data/`.
 
-| Asset | Görevi |
+| Asset | Purpose |
 |---|---|
-| `GameConfigSO` | Oyuncu hızı, zıplama kuvveti, ekran wrap payı, düşme-ölüm payı, kamera takip parametreleri, platform spawn/despawn mesafeleri |
-| `PlatformDataSO` | Bir platform *tipini* tanımlar: prefab, sprite, dikey aralık min/max, hareket tipi + parametreleri, çökme (crumbling) davranışı + parametreleri |
-| `PlatformSpawnSetSO` | `PlatformDataSO` listesi + ağırlıklı rastgele seçim (`GetRandomPlatform()`) — zorluk/çeşitlilik ayarı kod değişmeden bu asset üzerinden yapılabilir |
-| `GameSettingsSO` | Kullanıcının ses tercihlerini (Master/SFX volume) `PlayerPrefs` ile kalıcı tutan runtime "canlı ayar" nesnesi |
+| `GameConfigSO` | Player speed, jump force, wrap/death margins, camera follow tuning, spawn/despawn distances |
+| `PlatformDataSO` | Defines one platform *type*: prefab, sprite, vertical gap, movement type + parameters, crumble parameters |
+| `PlatformSpawnSetSO` | Weighted list of `PlatformDataSO` entries with `GetRandomPlatform()` — difficulty/variety tuning lives entirely in this asset, no code changes required |
+| `GameSettingsSO` | Runtime audio preferences (Master/SFX volume), backed by `PlayerPrefs` |
 
-**Neden:** Tasarımcının (ya da geliştiricinin) dengeleme/tuning yapmak için kod yazıp yeniden derlemesine gerek kalmaz — Inspector'dan sayıları değiştirip Play'e basmak yeterli. Ayrıca `PlatformDataSO.Prefab` bilinçli olarak `GameObject` tipinde tutulur (spesifik `PlatformController` tipinde değil) — aksi halde `Data` katmanı `Platforms` katmanına bağımlı olur ve **döngüsel bağımlılık** oluşurdu (`Platforms` zaten `Data`'ya bağımlı). Bu, "bağımlılık yönü tek taraflı olmalı" prensibinin somut bir uygulamasıdır.
+**Why:** A designer can rebalance the entire game from the Inspector without touching code or recompiling. `PlatformDataSO.Prefab` is deliberately typed as `GameObject`, not the more specific `PlatformController` — the alternative would make `Data` depend on `Platforms`, creating a circular reference (`Platforms` already depends on `Data`). This is a concrete instance of "dependencies flow one way."
 
-### Single Responsibility — Platform Akış Boru Hattı
+### Single Responsibility — the Platform Pipeline
 
-`PlatformStreamManager` (MonoBehaviour, orkestratör) → `PlatformSpawner` (hangi platformun nereye doğması gerektiğine karar verir) → `PlatformPoolManager` (havuzdan objeyi çeker) → `PlatformRecycler` (ekran altına düşenleri geri iade eder). Her sınıf **tek bir şeyi** yapar ve bağımsız test edilebilir; `PlatformStreamManager` sadece bunları doğru sırayla çağıran ince bir katmandır (Refactoring Guru: *Large Class* / *Long Method* kokularının önlenmesi).
+`PlatformStreamManager` (a thin `MonoBehaviour` orchestrator) drives `PlatformSpawner` (decides what spawns where) → `PlatformPoolManager` (pulls from the pool) → `PlatformRecycler` (returns off-screen platforms to the pool). Each class does exactly one thing and can be reasoned about — and unit-tested — in isolation. This avoids the *Large Class* / *Long Method* smells that a single "PlatformManager does everything" class would accumulate over time.
 
 ---
 
-## Sistem Sistem Açıklama
+## Systems Reference
 
 ### Core
 
-- **`EventChannelSO<T>`** — generic SO event channel temel sınıfı, `event Action<T> OnEventRaised` + `Raise(T value)`.
-- **`ComponentPool<T>`** — generic Unity object pool sarmalayıcısı.
-- **`ScreenBoundsUtility`** — `Camera.orthographicSize` + `aspect`'ten world-space ekran sınırlarını hesaplayan stateless static yardımcı. Hem `PlatformStreamManager` (spawn genişliği) hem `PlayerScreenWrapper` (ekran kenarı) hem `PlayerFallDetector` (ölüm eşiği) tarafından tekrar tekrar kullanılır (DRY).
+- **`EventChannelSO<T>`** — generic SO event channel base: `event Action<T> OnEventRaised` + `Raise(T value)`.
+- **`ComponentPool<T>`** — generic pooling wrapper (see above).
+- **`ScreenBoundsUtility`** — stateless helper that derives world-space screen bounds from `Camera.orthographicSize` + `aspect`. Reused by `PlatformStreamManager` (spawn width), `PlayerScreenWrapper` (wrap edges), and `PlayerFallDetector` (death threshold) — one implementation, three consumers.
 
 ### Platforms
 
-- **`PlatformController`** — `IPoolable` implementasyonu, kendi `PlatformDataSO`'sunu ve aktif `IPlatformMovement` stratejisini tutar. `PlaceAt(position)` ile spawn anında konumlanır (havuzdan çıkışta pozisyon sıralaması bug'ını önlemek için `Initialize()`'dan ayrı, açık bir adım — bkz. geliştirme geçmişi). `Initialize()` ayrıca `Data.Sprite` doluysa `SpriteRenderer.sprite`'ı da ayarlar — görsel tamamen veri odaklıdır, prefab başına sabit değildir.
-- **`PlatformEffector2D`** kullanılarak platformlar **tek yönlü** yapılmıştır: karakter alttan geçebilir, sadece üstten inince çarpışma oluşur. Bu, elle pivot karşılaştırması yazmak yerine Unity'nin bu tam senaryo için var olan fizik bileşenini kullanır (KISS — "tekerleği yeniden icat etme").
-- **Çökme (crumbling) platformları** — `PlatformDataSO.IsCrumbling = true` olan platform tipleri. `PlayerJumpController`, bir platforma inince artık `platform.NotifyLanded()`'ı da çağırır (broadcast event'e ek olarak, spesifik örneğe **doğrudan** bir çağrı — burada tek bir dinleyici olduğu ve ilişki 1:1 olduğu için event bus yerine doğrudan referans tercih edildi). `PlatformController`, `Data.CrumbleDelay` kadar bekler, sonra collider'ını kapatır ve `Data.CrumbleFallAcceleration` ile hızlanarak düşmeye başlar. Ekranın altına düşünce **hiçbir özel havuz mantığına gerek kalmadan**, zaten var olan `PlatformRecycler` onu otomatik olarak havuza iade eder — mimarideki sistemlerin birbiriyle uyumlu çalışmasının bir örneği. `OnDespawned()` çökme durumunu (`_isCrumbling`, collider, düşüş hızı) tam olarak sıfırlar, böylece havuzdan tekrar çekilen aynı örnek düzgün şekilde yeniden kullanılabilir. Sprite'ı, orijinal `tile_half` platform sprite'ının parlaklık-korumalı biçimde turuncu-kırmızı bir "tehlike" rengine boyanmasıyla üretildi (`Assets/Sprites/Platforms/tile_half_crumbling.png`).
+- **`PlatformController`** — implements `IPoolable`; owns its `PlatformDataSO` and active `IPlatformMovement`. `Initialize()` also assigns the type's sprite from data, so visuals are fully data-driven rather than baked into the prefab. `PlaceAt()` is a deliberately separate step from `Initialize()` — positioning after pooling, not during, avoids a stale-position bug that surfaced during development (see [Notable Bugs](#notable-bugs-found--fixed)).
+- **One-way platforms via `PlatformEffector2D`** — the character can jump up through a platform from below and only lands when descending onto it from above. This uses Unity's built-in physics component for exactly this use case instead of a hand-rolled pivot comparison (KISS: don't reinvent a solved problem).
+- **Crumbling platforms** — `PlatformDataSO.IsCrumbling = true` types. `PlayerJumpController` calls `platform.NotifyLanded()` directly (a targeted call to the specific instance, alongside the broadcast event — a 1:1 relationship, not a broadcast one). The controller then waits `CrumbleDelay` seconds, disables its collider, and accelerates downward via `CrumbleFallAcceleration`. **No new pooling logic was needed** — once the platform physically falls below the camera, the existing `PlatformRecycler` picks it up automatically, exactly as it would any other platform. `OnDespawned()` fully resets the crumble state, verified by driving the same pooled instance through two full landing→fall→recycle→reuse cycles in testing.
 
 ### Player
 
-- **`PlayerInputReader`** — yeni Input System'in `Pointer.current`'ı üzerinden ekranın sağ/sol yarısına basılı tutmayı okur, yönü `FloatEventChannelSO` üzerinden yayınlar. Mouse ve dokunmatik ekranı aynı kodla, platforma özel dallanma olmadan destekler.
-- **`PlayerMovementController`** — yön event'ini dinler, `Rigidbody2D.linearVelocity.x`'i günceller.
-- **`PlayerJumpController`** — platforma çarpışmada (tek yönlü fizik zaten sadece üstten inişte tetiklendiği için ekstra hız kontrolüne gerek yoktur) zıplama kuvvetini uygular ve `PlayerLandedChannel`'ı tetikler.
-- **`PlayerScreenWrapper`** — ekranın bir kenarından çıkan oyuncuyu diğer kenardan çıkarır (sonsuz yatay döngü).
-- **`PlayerFallDetector`** — oyuncu kamera alt sınırının (+ pay) altına düşerse sahneyi `SceneManager.LoadScene` ile yeniden yükler.
+- **`PlayerInputReader`** — reads `Pointer.current` from the new Input System and raises a direction event based on which half of the screen is held. Mouse and touch are handled by the same code path with no platform branching.
+- **`PlayerMovementController`** — applies horizontal velocity from the direction event.
+- **`PlayerJumpController`** — applies jump force on landing (the one-way effector already guarantees the collision only fires on a downward landing, so no extra velocity check is needed) and raises the landed event.
+- **`PlayerScreenWrapper`** — wraps the player across screen edges.
+- **`PlayerFallDetector`** — reloads the scene if the player falls below the camera's lower bound (+ margin).
 
 ### CameraSystem
 
-- **`CameraFollowController`** — kamerayı yalnızca yukarı doğru takip eder (`Mathf.Max` ile asla geriye/aşağı gitmez), `SmoothDamp` ile yumuşatır, oyuncu ile arasındaki mesafe `MaxCameraLag`'ı aşarsa sert şekilde yakalar — hızlı zıplamalarda oyuncunun ekran dışına çıkmasını önler.
+- **`CameraFollowController`** — follows upward only (`Mathf.Max` guarantees it never regresses downward), smoothed with `SmoothDamp`, with a hard-clamp catch-up if the gap to the player exceeds `MaxCameraLag` — this is what prevents a fast jump from ever carrying the player off the top of the screen.
 
 ### Bootstrap
 
-- **`GameInitializer`** — `BeginGame()` public metodu ile (Ana Menü'deki Play butonundan tetiklenir) oyuncuyu instantiate eder, kamera hedefini ve platform akışını başlatır. Sahne yüklendiğinde otomatik başlamaz — kullanıcı Play'e basana kadar bekler.
+- **`GameInitializer`** — exposes `BeginGame()`, called by the main menu's Play button. Spawns the player, sets the camera target, and starts the platform stream. Nothing runs automatically on scene load; the game waits for explicit player input.
 
 ---
 
-## Oynanış Mekanikleri
+## UI (UI Toolkit)
 
-| Mekanik | Nasıl çalışıyor |
-|---|---|
-| Otomatik zıplama | `Rigidbody2D` + `PlatformEffector2D` tek yönlü platform + `PlayerJumpController` çarpışma tepkisi |
-| Yön kontrolü | Ekranın sağına/soluna dokunma → `PlayerInputReader` → event → `PlayerMovementController` |
-| Sonsuz platform akışı | `PlatformStreamManager` oyuncunun yüksekliğine göre önden spawn eder, kamera altına düşenleri havuza iade eder |
-| Çökme platformu | Farklı renkli platform tipi — üstüne inince kısa bir gecikmeyle çöker ve düşer, tekrar basılamaz; `PlatformSpawnSetSO` içinde ağırlıklı olarak diğer tiplerle karışık spawn olur, oyun uzadıkça oyuncunun daha sık karşılaştığı bir risk haline gelir |
-| Ekran wrap | `PlayerScreenWrapper`, `ScreenBoundsUtility` ile hesaplanan sınırları kullanır |
-| Kamera takibi | Sadece yukarı, max-lag ile sıkı takip |
-| Ölüm / yeniden başlama | Ekran altına düşme → sahne yeniden yüklenir → Ana Menü'ye dönülür |
-| Duraklama | Ayarlar paneli açıkken `Time.timeScale = 0` (UI ve ses bundan etkilenmez, gerçek zamanla çalışmaya devam eder) |
+Built with **UI Toolkit** (UXML/USS), a built-in Unity 6 module — no third-party UI package required.
+
+- **Main Menu** (`Assets/UI/MainMenu/`) — title + Play button, driven by `MainMenuController`.
+- **Settings Panel** (`Assets/UI/Settings/`) — Master/SFX volume sliders, driven by `SettingsMenuController`. Can be opened from the main menu *or* mid-run; it remembers which screen it was opened from and restores the correct state on close. Opening it pauses the game (`Time.timeScale = 0`); the panel itself and its audio feedback stay fully responsive since UI Toolkit and `AudioSource` are unaffected by time scale.
+- **Persistent Settings Button** (`Assets/UI/Hud/`) — a fixed, round, top-right icon button, driven by `SettingsHudController`. It lives on its own always-active `UIDocument` so it's available identically in the menu and in-game, without needing per-screen wiring.
+- **`KenneyButtonSkinner`** — a small, reusable, non-`MonoBehaviour` helper class that applies Kenney UI art (normal/pressed sprite swap + 9-slice border) to any UI Toolkit `Button`. Used by both the main menu and the HUD button — one implementation, no duplication.
+
+`UIDocument.sortingOrder` layers the three panels deterministically: Main Menu (0) < HUD button (1) < Settings panel (2, so it always renders on top when open).
 
 ---
 
-## UI Sistemi (UI Toolkit)
+## Audio
 
-Proje **UI Toolkit** (UXML/USS — XML tabanlı UI tanımı) kullanır; bu, Unity 6'da yerleşik bir modüldür (`com.unity.modules.uielements`), ekstra paket kurulumu gerekmez.
+- **`AudioClipEventChannelSO`** — a generic "play this clip" request channel (Core.Events) — the Observer pattern applied a second time, for sound.
+- **`SfxPlayer`** — the single component that actually owns an `AudioSource` and listens for that channel, firing `PlayOneShot`.
+- **`JumpSfxTrigger`** — subscribes to the *existing* `PlayerLandedChannel` and requests the jump SFX — proof the event channel architecture pays for itself, since no change to jump/landing code was needed to add sound.
+- **`AudioSettingsController`** — multiplies Master × SFX volume from `GameSettingsSO` onto the `SfxPlayer`'s `AudioSource`, and persists changes. Deliberately initializes in `Start()`, not `Awake()` — see [Notable Bugs](#notable-bugs-found--fixed).
 
-- **Ana Menü** (`Assets/UI/MainMenu/`) — başlık + Play butonu. `MainMenuController`.
-- **Ayarlar Paneli** (`Assets/UI/Settings/`) — Master/SFX volume slider'ları. `SettingsMenuController`. Hem ana menüden hem oyun içinden açılabilir; nereden açıldığını hatırlayıp Geri butonunda doğru yere döner.
-- **Kalıcı Ayarlar Butonu (HUD)** (`Assets/UI/Hud/`) — ekranın sağ üstünde her zaman sabit duran yuvarlak buton, `SettingsHudController`. Oyun içinde de erişilebilir olması için ayrı, hiç deaktif olmayan bir `UIDocument` olarak kurgulandı.
-- **`KenneyButtonSkinner`** — herhangi bir UI Toolkit `Button`'a Kenney UI Pack sprite'larıyla normal/basılı görsel durumu ve 9-slice dilimleme uygulayan, tekrar kullanılabilir bağımsız yardımcı sınıf (MonoBehaviour değil, düz C# sınıfı — DRY, birden fazla controller'da tekrar tekrar kullanılıyor).
-
-Panel sıralaması (`UIDocument.sortingOrder`): Ana Menü (0) < HUD butonu (1) < Ayarlar paneli (2) — ayarlar açıldığında her şeyin üstünde görünür.
+SFX are sourced from the Kenney UI Audio pack (`Assets/Audio/Kenney/`): `tap-a` (jump), `click-a` (button press), `switch-a` (slider/setting change). Unused pack variants were identified and removed from the repository (see engineering notes below).
 
 ---
 
-## Ses Sistemi
-
-- **`AudioClipEventChannelSO`** — "bu ses efektini çal" isteği için genel amaçlı event channel (Core.Events, reusable — Event Bus deseninin ses için ikinci bir uygulaması).
-- **`SfxPlayer`** — bu kanalı dinleyip `AudioSource.PlayOneShot` ile çalan tek merkezi bileşen.
-- **`JumpSfxTrigger`** — mevcut `PlayerLandedChannel`'ı ikinci bir dinleyici olarak kullanır, zıplama sesini `PlayerJumpController`'a hiç dokunmadan tetikler (Event Bus mimarisinin somut faydası).
-- **`AudioSettingsController`** — `GameSettingsSO`'daki Master×SFX çarpımını `AudioSource.volume`'a uygular ve kalıcı hale getirir. *(Not: `Awake()` yerine bilinçli olarak `Start()` kullanılır — aynı GameObject üzerindeki `SfxPlayer.Awake()`'in kendisinden önce çalışacağının garantisi olmadığı için; `Start()` tüm `Awake()` çağrılarından sonra çalışması garanti edilen ilk noktadır.)*
-
-Ses efektleri Kenney UI Pack'ten alınmıştır (`Assets/Audio/Kenney/`): `tap-a` (zıplama), `click-a` (buton tıklama), `switch-a` (slider/ayar değişimi).
-
----
-
-## Veri / ScriptableObject Asset'leri
+## Data Assets
 
 ```
 Assets/Data/
   GameConfig.asset              → GameConfigSO
-  GameSettings.asset            → GameSettingsSO (PlayerPrefs destekli)
+  GameSettings.asset            → GameSettingsSO (PlayerPrefs-backed)
   Events/
     MoveDirectionChannel.asset  → FloatEventChannelSO
     PlayerLandedChannel.asset   → PlatformEventChannelSO
     SfxRequestChannel.asset     → AudioClipEventChannelSO
   Platforms/
-    PlatformData_Static.asset     → PlatformDataSO (sabit platform)
-    PlatformData_Moving.asset     → PlatformDataSO (yatay salınımlı platform)
-    PlatformData_Crumbling.asset  → PlatformDataSO (çöken platform, turuncu-kırmızı sprite)
-    PlatformSpawnSet.asset        → PlatformSpawnSetSO (%50 sabit / %25 hareketli / %25 çöken ağırlık)
+    PlatformData_Static.asset     → PlatformDataSO (static platform)
+    PlatformData_Moving.asset     → PlatformDataSO (horizontal oscillation)
+    PlatformData_Crumbling.asset  → PlatformDataSO (collapses after landing, red/orange sprite)
+    PlatformSpawnSet.asset        → PlatformSpawnSetSO (50% static / 25% moving / 25% crumbling)
 ```
+
+All three platform types reuse the **same prefab** (`Platform.prefab`) — the difference between them is entirely data (sprite, movement, crumble parameters), which is the data-driven philosophy paying off directly in reduced asset count.
 
 ---
 
 ## Android Build
 
-- **Build hedefi:** Android, IL2CPP scripting backend, ARM64 mimari (Play Store zorunluluğu — proje varsayılanlarında zaten mevcut).
-- **Paket kimliği:** `com.Jumpy.Jumpy`
-- **Ekran yönü:** Portrait'e kilitli (dikey oyun).
-- **Input:** Yeni Input System (`Pointer.current`) zaten dokunmatik ekranı native destekler — platforma özel ekstra kod gerekmedi.
-- Build, 0 derleme hatasıyla doğrulanmıştır (`File > Build Settings > Android` üzerinden yeniden derlenebilir).
+- **Target:** Android, IL2CPP scripting backend, ARM64 architecture (Play Store requirement — already the project default).
+- **Package identifier:** `com.Jumpy.Jumpy`.
+- **Orientation:** locked portrait (vertical gameplay).
+- **Input:** the new Input System (`Pointer.current`) already unifies mouse and touch, so no Android-specific input code was required.
+- Build was verified end-to-end with zero compile errors via `File > Build Settings > Android`.
 
 ---
 
-## Kod Standartları
+## Engineering Standards
 
-Proje `Rules/` klasöründeki iki kaynağa uyar:
-- Unity resmi *"Create a C# Style Guide"* — isimlendirme (PascalCase/camelCase/`_` öneki), Allman brace stili, sınıf organizasyonu, yorum kuralları.
-- *"Dive Into Refactoring"* (Refactoring.Guru) — code smell kataloğu (Bloaters, Object-Orientation Abusers, Change Preventers, Dispensables, Couplers) ve karşılık gelen refactoring teknikleri.
+Every C# file follows two references kept in `Rules/`:
 
-Özet kurallar: PascalCase class/method/public üye, camelCase + `_` önekli private alan, Allman stil süslü parantez, tek satırlık `if`'lerde bile parantez kullanımı, `[SerializeField]` + `[Tooltip]` ile private alanların Inspector'a açılması, minimal yorum (sadece "neden" açıklaması gerektiğinde).
+- Unity's official **Create a C# Style Guide** — PascalCase for classes/methods/public members, camelCase with a `_` prefix for private fields, Allman braces, braces on single-line `if` statements, `[SerializeField]` + `[Tooltip]` over public fields, minimal comments (only where the *why* isn't obvious from the code).
+- **Dive Into Refactoring** (Refactoring.Guru) — the code-smell catalog (Bloaters, Object-Orientation Abusers, Change Preventers, Dispensables, Couplers) referenced by name throughout this document whenever a design decision was made specifically to avoid one of them.
+
+**Repository hygiene:** the codebase was audited for dead code and unused assets before publishing — every public class, method, and property was cross-referenced for actual usage; 78 unused imported UI sprites and 3 unused audio clips were identified (by scanning every serialized reference project-wide, not just filename search) and removed, along with two write-only fields left over from earlier iterations.
 
 ---
 
-## Bilinen Sınırlamalar / Sonraki Adımlar
+## Notable Bugs Found & Fixed
 
-- Zorluk seviyesi ayarlardan kaldırıldı; şu an zorluk artışı, çöken platform gibi tiplerin `PlatformSpawnSetSO` içindeki ağırlıklı karışımından doğal olarak geliyor. Yüksekliğe göre ağırlıkları kademeli değiştiren (örn. yükseldikçe çöken platform oranını artıran) bir sistem ileride eklenebilir.
-- Skor sistemi henüz yok — `PlayerLandedChannel` event'i zaten mevcut olduğu için eklenmesi kolay (yeni bir dinleyici yazmak yeterli, mevcut koda dokunmadan).
-- Tek platform prefabı (`Platform.prefab`) var; farklı görsel/davranış varyasyonları (statik, hareketli, çöken) `PlatformDataSO` üzerinden aynı prefaba farklı sprite + `PlatformMovementType` + çökme parametreleri atanarak elde ediliyor.
+Documented here deliberately — these reflect the actual debugging process, not just the final state:
+
+- **Guaranteed first platform.** Early on, the very first platform spawned at a random X position instead of under the player, so a missed landing meant falling forever with nothing below to catch it. Fixed by adding `PlatformSpawner.SpawnAt(x)` so the initial platform is always placed directly under the spawn point.
+- **Stale velocity check on one-way platforms.** After switching platforms to `PlatformEffector2D`, a leftover `if (velocity.y > 0) return;` guard in the jump handler could spuriously suppress a legitimate landing bounce (solver noise could report a tiny positive Y-velocity on contact), leaving the character permanently resting on a platform. Removed once the effector itself was confirmed to already guarantee landing-only collisions.
+- **Cross-component `Awake()` ordering.** `AudioSettingsController.Awake()` depended on `SfxPlayer.Awake()` having already run on the same GameObject — an order Unity does not guarantee. Moved the dependent logic to `Start()`, which is guaranteed to run after every `Awake()` in the scene.
+- **RectOffset field initializer.** A `[SerializeField] private RectOffset _slice = new RectOffset(...)` field initializer threw at runtime — `RectOffset`'s constructor performs native calls that Unity disallows outside `Awake()`/`Start()`. Removed the inline default and let the Inspector-assigned value take over.
+
+---
+
+## Possible Next Steps
+
+- Difficulty currently emerges naturally from the crumbling-platform weight in `PlatformSpawnSetSO`; a system that shifts those weights based on height would give explicit, tunable progression.
+- No scoring yet — trivial to add as a new listener on the existing `PlayerLandedChannel`, with no changes to player or platform code.
+- Only one platform prefab exists today; new *visual* variants are just new `PlatformDataSO` assets, but a genuinely new *shape* would need a second prefab.
